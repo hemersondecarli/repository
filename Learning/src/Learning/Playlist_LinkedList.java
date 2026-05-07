@@ -3,7 +3,7 @@ package Learning;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Main {
+public class Playlist_LinkedList {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
