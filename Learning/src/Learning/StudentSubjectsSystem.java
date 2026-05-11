@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import javax.security.auth.Subject;
-
 public class StudentSubjectsSystem {
 	public static void main(String[] args) {
 
