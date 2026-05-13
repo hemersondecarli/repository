@@ -62,7 +62,6 @@ public class StudentListSystem {
 				studentz.viewInfo();
 				found = true;
 				break;
-
 			}
 		}
 
