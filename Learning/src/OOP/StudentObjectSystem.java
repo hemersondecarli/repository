@@ -55,14 +55,15 @@ public class StudentObjectSystem {
 		int grade;
 		boolean case1 = false;
 		boolean case2 = true;
+		boolean case4 = false;
 
 		while (choice != 6) {
-			System.out.println("1 -Add student");
-			System.out.println("2 -Show all students");
-			System.out.println("1 -Search student by name");
-			System.out.println("1- Remove student by name");
-			System.out.println("1- Update student grade");
-			System.out.println("1- Exit");
+			System.out.println("1- Add student");
+			System.out.println("2- Show all students");
+			System.out.println("3- Search student by name");
+			System.out.println("4- Remove student by name");
+			System.out.println("5- Update student grade");
+			System.out.println("6- Exit");
 
 			choice = scanner.nextInt();
 			scanner.nextLine();
@@ -75,6 +76,7 @@ public class StudentObjectSystem {
 				age = scanner.nextInt();
 				System.out.print("Grade: ");
 				grade = scanner.nextInt();
+				scanner.nextLine();
 
 				for (Student std : students) {
 					if (std.getName().equalsIgnoreCase(studentName)) {
@@ -121,7 +123,51 @@ public class StudentObjectSystem {
 					System.out.println("No students yet");
 				}
 				break;
+			case 4:
+				Student studentToRemove = null;
+				System.out.println("Enter name");
+				studentName = scanner.nextLine();
 
+				for (Student student : students) {
+					if (student.getName().equalsIgnoreCase(studentName)) {
+						studentToRemove = student;
+						case4 = true;
+						break;
+					}
+				}
+				if (case4 == true) {
+					students.remove(studentToRemove);
+					System.out.println("Removed student: " + studentName);
+				} else {
+					System.out.printf("Student %s not found\n", studentName);
+				}
+				break;
+			case 5:
+				Student studentNewGrade = null;
+				int newGrade = 0;
+				
+				System.out.println("Enter name");
+				studentName = scanner.nextLine();
+
+				for (Student student : students) {
+					if (student.getName().equalsIgnoreCase(studentName)) {
+						System.out.println("Enter new grade");
+						newGrade = scanner.nextInt();
+						scanner.nextLine();
+						studentNewGrade = student;
+						case4 =true;
+					}
+				}
+				if(case4 == true) {
+					studentNewGrade.setGrade(newGrade);
+					System.out.printf("you have added a new grade of: %d to the student name: %s \n", newGrade, studentName);
+				}else {
+					System.out.println("Student not found");
+				}
+				break;
+			case 6:
+				System.out.println("System closing.....");
+				return;
 			}
 		}
 	}
