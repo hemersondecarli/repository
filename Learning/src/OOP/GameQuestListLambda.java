@@ -65,7 +65,7 @@ public class GameQuestListLambda {
 		quests.add(new Quest("Dragon Cave", "Hard", 1000, false));
 		quests.add(new Quest("Find Lost Ring", "Easy", 150, false));
 		quests.add(new Quest("Rescue Villager", "Medium", 400, true));
-		quests.add(new Quest("Ancient Ruins", "Hard", 800, false));
+		quests.add(new Quest("Ancient Ruins", "Hard", 800, true));
 
 		int option = 0;
 
@@ -105,22 +105,51 @@ public class GameQuestListLambda {
 
 			case 3:
 				// Show incomplete quests
+				quests.forEach(quest -> {
+					if (quest.isCompleted()==false) {
+						quest.viewInfo();
+					}
+				});
+
 				break;
 
 			case 4:
 				// Show hard quests
+				quests.forEach(quest -> {
+					if (quest.getDificulty().equalsIgnoreCase("Hard")) {
+						quest.viewInfo();
+					}
+				});
+
 				break;
 
 			case 5:
 				// Show quests with reward above 500 gold
+				int gold = 500;
+				quests.forEach(quest -> {
+					if (quest.getRewardGold() >= gold) {
+						quest.viewInfo();
+					}
+				});
 				break;
 
 			case 6:
 				// Count completed quests
+				//Streams
+				int counter = (int) quests.stream().filter(Quest::isCompleted).count();
+				
+				System.out.println("Number of completed quests: "+counter);
 				break;
 
 			case 7:
 				// Search quest by title
+				System.out.println("Enter title to search quest");
+				String title = scanner.nextLine();
+				quests.forEach(quest ->{
+					if(quest.getTitle().equalsIgnoreCase(title)) {
+						quest.viewInfo();
+					}
+				});
 				break;
 
 			case 8:
