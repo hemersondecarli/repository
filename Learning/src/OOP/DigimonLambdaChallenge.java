@@ -63,9 +63,8 @@ public class DigimonLambdaChallenge {
 
 		digimons.add(new Digimon("Agumon", 5, "Fire", 100));
 		digimons.add(new Digimon("Gabumon", 24, "Ice", 90));
-		digimons.add(new Digimon("Patamon", 3, "Holy", 70));
+		digimons.add(new Digimon("Patamon", 3, "Holy", 100));
 		digimons.add(new Digimon("Guilmon", 16, "fire", 20));
-		digimons.add(new Digimon("Greymon", 31, "Fire", 80));
 
 		int option = 0;
 
@@ -124,14 +123,37 @@ public class DigimonLambdaChallenge {
 
 			case 4:
 				// Show Digimons with health below 100
+				for(Digimon digimonHP : digimons) {
+					if(digimonHP.getHealth()<100) {
+						digimonHP.showDigimon();
+					}
+				}
 				break;
 
 			case 5:
 				// Count Fire type Digimons
+				int count = 0;
+				Digimon counter;
+				
+				for(Digimon fireCount : digimons) {
+					if(fireCount.getType().equalsIgnoreCase("Fire")) {
+						counter = fireCount;
+						count++;
+					}
+				}
+				System.out.println("Number of fire type digimon is: "+count);
 				break;
 
 			case 6:
 				// Search Digimon by name
+				System.out.println("Enter digimon name");
+				String name = scanner.nextLine();
+				
+				for(Digimon digimon : digimons) {
+					if(digimon.getName().equalsIgnoreCase(name)) {
+						digimon.showDigimon();
+					}
+				}
 				break;
 
 			case 7:
