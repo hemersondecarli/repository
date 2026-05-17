@@ -63,7 +63,9 @@ public class DigimonLambdaChallenge {
 
 		digimons.add(new Digimon("Agumon", 5, "Fire", 100));
 		digimons.add(new Digimon("Gabumon", 24, "Ice", 90));
-		digimons.add(new Digimon("Patamon", 11, "Ice", 70));
+		digimons.add(new Digimon("Patamon", 3, "Holy", 70));
+		digimons.add(new Digimon("Guilmon", 16, "fire", 20));
+		digimons.add(new Digimon("Greymon", 31, "Fire", 80));
 
 		int option = 0;
 
@@ -108,6 +110,16 @@ public class DigimonLambdaChallenge {
 
 			case 3:
 				// Show Fire type Digimons
+				boolean fireExist=false;
+				for (Digimon digimonType : digimons) {
+					if(digimonType.getType().equalsIgnoreCase("Fire")) {
+						digimonType.showDigimon();
+						fireExist=true;
+					}
+				}
+				if(fireExist==false) {
+					System.out.println("No fire type digimon");
+				}
 				break;
 
 			case 4:
