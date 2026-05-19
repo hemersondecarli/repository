@@ -157,7 +157,7 @@ public class DigimonLambdaChallenge {
 				break;
 
 			case 7:
-				System.out.println("Exiting system...");
+				System.out.println("Closing system...");
 				break;
 
 			default:
