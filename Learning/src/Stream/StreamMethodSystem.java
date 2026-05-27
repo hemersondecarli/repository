@@ -62,7 +62,7 @@ public class StreamMethodSystem {
 	}
 
 	public static void showPokemonByType(ArrayList<Pokemon> pokemons, String type) {
-		pokemons.stream().filter(pokemon -> pokemon.getType().contains(type)).forEach(Pokemon::showPokemons);
+		pokemons.stream().filter(pokemon -> pokemon.getType().equalsIgnoreCase(type)).forEach(Pokemon::showPokemons);
 	}
 
 }
