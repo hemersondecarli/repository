@@ -48,6 +48,9 @@ public class StreamMethodSystem {
 				String type = scanner.nextLine();
 
 				showPokemonByType(pokemons, type);
+				break;
+			case 4:
+				showAverageLevel(pokemons);
 			}
 
 		}
@@ -63,6 +66,13 @@ public class StreamMethodSystem {
 
 	public static void showPokemonByType(ArrayList<Pokemon> pokemons, String type) {
 		pokemons.stream().filter(pokemon -> pokemon.getType().equalsIgnoreCase(type)).forEach(Pokemon::showPokemons);
+	}
+
+	public static void showAverageLevel(ArrayList<Pokemon> pokemons) {
+		int value = pokemons.stream().mapToInt(pokemon -> pokemon.getLevel()).sum();
+
+		double avg = value / pokemons.size();
+		System.out.println("Average is: " + avg);
 	}
 
 }
