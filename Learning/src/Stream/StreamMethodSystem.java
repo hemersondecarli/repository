@@ -87,7 +87,7 @@ public class StreamMethodSystem {
 	public static void showAverageLevel(ArrayList<Pokemon> pokemons) {
 		int value = pokemons.stream().mapToInt(pokemon -> pokemon.getLevel()).sum();
 
-		double avg = value / pokemons.size();
+		double avg = (double) value / pokemons.size();
 		System.out.println("Average is: " + avg);
 	}
 
