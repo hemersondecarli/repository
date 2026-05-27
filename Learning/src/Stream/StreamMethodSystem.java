@@ -58,6 +58,9 @@ public class StreamMethodSystem {
 				break;
 			case 6:
 				showStrongestPokemon(pokemons);
+				break;
+			case 7:
+				showPokemonNameOnly(pokemons);
 			}
 
 		}
@@ -89,5 +92,10 @@ public class StreamMethodSystem {
 
 	public static void showStrongestPokemon(ArrayList<Pokemon> pokemons) {
 		pokemons.stream().max(Comparator.comparingInt(Pokemon::getLevel)).ifPresent(Pokemon::showPokemons);
+	}
+
+	public static void showPokemonNameOnly(ArrayList<Pokemon> pokemons) {
+		pokemons.stream().map(Pokemon::getName).map(pokemon -> pokemon.toUpperCase())
+				.forEach(Pokemon -> System.out.println(Pokemon));
 	}
 }
