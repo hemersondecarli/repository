@@ -1,6 +1,7 @@
 package Stream;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class StreamMethodSystem {
@@ -14,7 +15,7 @@ public class StreamMethodSystem {
 		pokemons.add(new Pokemon("Pikachu", 44, "thunder", 44));
 		pokemons.add(new Pokemon("Pidgey", 33, "wind", 33));
 		pokemons.add(new Pokemon("Meowth", 35, "normal", 55));
-		pokemons.add(new Pokemon("bayleef", 90, "grass", 80));
+		pokemons.add(new Pokemon("bayleef", 20, "grass", 80));
 
 		int choice = 0;
 
@@ -54,6 +55,9 @@ public class StreamMethodSystem {
 				break;
 			case 5:
 				showTotalHealth(pokemons);
+				break;
+			case 6:
+				showStrongestPokemon(pokemons);
 			}
 
 		}
@@ -81,5 +85,9 @@ public class StreamMethodSystem {
 	public static void showTotalHealth(ArrayList<Pokemon> pokemons) {
 		int sum = pokemons.stream().mapToInt(pokemon -> pokemon.getHealth()).sum();
 		System.out.println(sum);
+	}
+
+	public static void showStrongestPokemon(ArrayList<Pokemon> pokemons) {
+		pokemons.stream().max(Comparator.comparingInt(Pokemon::getLevel)).ifPresent(Pokemon::showPokemons);
 	}
 }
