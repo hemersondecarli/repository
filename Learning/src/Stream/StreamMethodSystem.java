@@ -40,9 +40,14 @@ public class StreamMethodSystem {
 				System.out.println("Enter a level");
 				int level = scanner.nextInt();
 				scanner.nextLine();
-				
-				showPokemonAboveAChosenLevel(pokemons, level);
 
+				showPokemonAboveAChosenLevel(pokemons, level);
+				break;
+			case 3:
+				System.out.println("Chose between fire - water - thunder - wind - normal - grass");
+				String type = scanner.nextLine();
+
+				showPokemonByType(pokemons, type);
 			}
 
 		}
@@ -53,8 +58,11 @@ public class StreamMethodSystem {
 	}
 
 	public static void showPokemonAboveAChosenLevel(ArrayList<Pokemon> pokemons, int level) {
-		pokemons.stream().filter(pokemon -> pokemon.getLevel() > level)
-		.forEach(Pokemon::showPokemons);
+		pokemons.stream().filter(pokemon -> pokemon.getLevel() > level).forEach(Pokemon::showPokemons);
+	}
+
+	public static void showPokemonByType(ArrayList<Pokemon> pokemons, String type) {
+		pokemons.stream().filter(pokemon -> pokemon.getType().contains(type)).forEach(Pokemon::showPokemons);
 	}
 
 }
