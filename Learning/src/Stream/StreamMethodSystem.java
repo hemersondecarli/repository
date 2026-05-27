@@ -51,6 +51,9 @@ public class StreamMethodSystem {
 				break;
 			case 4:
 				showAverageLevel(pokemons);
+				break;
+			case 5:
+				showTotalHealth(pokemons);
 			}
 
 		}
@@ -75,4 +78,8 @@ public class StreamMethodSystem {
 		System.out.println("Average is: " + avg);
 	}
 
+	public static void showTotalHealth(ArrayList<Pokemon> pokemons) {
+		int sum = pokemons.stream().mapToInt(pokemon -> pokemon.getHealth()).sum();
+		System.out.println(sum);
+	}
 }
