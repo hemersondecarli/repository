@@ -61,6 +61,12 @@ public class StreamMethodSystem {
 				break;
 			case 7:
 				showPokemonNameOnly(pokemons);
+				break;
+			case 8:
+				System.out.println("System closing.....");
+				break;
+			default:
+				System.out.println("Wrong option");
 			}
 
 		}
