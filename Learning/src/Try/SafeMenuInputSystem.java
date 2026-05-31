@@ -45,7 +45,7 @@ public class SafeMenuInputSystem {
 				System.out.println("System closing....");
 				break;
 			default:
-				System.out.println("Wrong option");
+				System.out.println("Wrong option! Please choose one of the options listed.");
 			}
 		}
 		scanner.close();
