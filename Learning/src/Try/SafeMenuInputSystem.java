@@ -30,7 +30,7 @@ public class SafeMenuInputSystem {
 				break;
 			case 2:
 				try {
-					System.out.println("Type a number");
+					System.out.print("Type a number: ");
 					int number = scanner.nextInt();
 					scanner.nextLine();
 					int doubled = number * 2;
