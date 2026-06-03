@@ -1,0 +1,4 @@
+Study Java streams today
+Practice OOP tomorrow
+Review HashMap
+All good
