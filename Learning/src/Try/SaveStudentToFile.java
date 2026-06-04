@@ -1,5 +1,7 @@
 package Try;
 
+import java.util.ArrayList;
+
 class Student {
 	private String name;
 	private int age;
@@ -15,8 +17,8 @@ class Student {
 public class SaveStudentToFile {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		ArrayList<Student> students = new ArrayList<>();
+	
 	}
 
 }
