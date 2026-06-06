@@ -139,6 +139,21 @@ public class StudentFileManager {
 				else {
 					System.out.println("student not found");
 				}
+				break;
+			case 7:
+				System.out.println("Enter student name to update grade");
+				String nameN = scanner.nextLine();
+				
+				boolean existName = students.stream().anyMatch(student -> student.getName().equalsIgnoreCase(nameN));
+				
+				if(existName) {
+					System.out.println("Enter new grade");
+					int newGrade = scanner.nextInt();
+					scanner.nextLine();
+					students.stream().forEach(student -> student.setGrade(newGrade));
+				}else {
+					System.out.println("student not found");
+				}
 			}
 		}
 	}
