@@ -74,7 +74,7 @@ public class StudentFileManager {
 				try {
 					FileWriter fw = new FileWriter("students.txt");
 					for (Student stud : students) {
-						fw.write(stud.getName() + "," + stud.getAge() + "," + stud.getGrade());
+						fw.write(stud.getName() + "," + stud.getAge() + "," + stud.getGrade() + "\n");
 					}
 					fw.close();
 				} catch (IOException e) {
@@ -99,10 +99,10 @@ public class StudentFileManager {
 
 						students.add(new Student(studentName, studentAge, studentGrade));
 
-						students.forEach(Student::viewInfo);
 
 					}
 					System.out.println("Students load from the file");
+					students.forEach(Student::viewInfo);
 					br.close();
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -120,7 +120,7 @@ public class StudentFileManager {
 				if (results.isEmpty()) {
 					System.out.println("Student not found");
 				} else {
-					students.forEach(Student::viewInfo);
+					results.forEach(Student::viewInfo);
 				}
 				break;
 			case 6:
@@ -149,7 +149,9 @@ public class StudentFileManager {
 					System.out.println("Enter new grade");
 					int newGrade = scanner.nextInt();
 					scanner.nextLine();
-					students.stream().forEach(student -> student.setGrade(newGrade));
+					students.stream()
+			        .filter(student -> student.getName().equalsIgnoreCase(nameN))
+			        .forEach(student -> student.setGrade(newGrade));
 				}else {
 					System.out.println("student not found");
 				}
