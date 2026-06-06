@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class StudentFileManager {
 
@@ -112,15 +113,31 @@ public class StudentFileManager {
 				boolean found = false;
 
 				System.out.println("Enter student name to search");
-				String studentName = scanner.nextLine();
+				String searchStudent = scanner.nextLine();
 
-				List<Student> results = students.stream().filter(student -> student.getName().contains(studentName))
+				List<Student> results = students.stream().filter(student -> student.getName().contains(searchStudent))
 						.toList();
 
 				if (results.isEmpty()) {
 					System.out.println("Student not found");
 				} else {
 					students.forEach(Student::viewInfo);
+				}
+				break;
+			case 6:
+				System.out.println("Enter student name to delete");
+				String deleteStudent = scanner.nextLine();
+
+				boolean exists = students.stream()
+						.anyMatch(student -> student.getName().equalsIgnoreCase(deleteStudent));
+
+				if (exists) {//deleting student
+					students = students.stream().filter(student -> !student.getName().equalsIgnoreCase(deleteStudent))
+							.collect(Collectors.toCollection(ArrayList::new));
+					System.out.println("Student deleted");
+				}
+				else {
+					System.out.println("student not found");
 				}
 			}
 		}
