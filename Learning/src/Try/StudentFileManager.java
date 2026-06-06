@@ -155,6 +155,12 @@ public class StudentFileManager {
 				}else {
 					System.out.println("student not found");
 				}
+				break;
+			case 8:
+				System.out.println("System closing...");
+				break;
+			default :
+				System.out.println("Wrong option");
 			}
 		}
 	}
