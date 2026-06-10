@@ -49,8 +49,10 @@ public class HashSets {
 				System.out.println("Enter a name to delete");
 				String nameDelete = scanner.nextLine();
 				
-				if(names.contains(nameDelete)) {
-					names.remove(nameDelete);
+				boolean delete = names.removeIf(name -> name.equalsIgnoreCase(nameDelete));
+				
+				if(delete) {
+					System.out.println(nameDelete+" has been deleted");
 				}else {
 					System.out.println("Name not found");
 				}
