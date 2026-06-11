@@ -62,7 +62,12 @@ public class HashSets {
 			
 					 System.out.println(name);
 				}
-				
+				break;
+			case 5:
+				System.out.println("Exiting....");
+				break;
+				default:
+				System.out.println("Wrong option");
 			}
 		}
 	}
