@@ -160,7 +160,7 @@ public class StudentFileManager {
 				System.out.println("System closing...");
 				break;
 			default :
-				System.out.println("Wrong option");
+				System.out.println("Wrong option - try again");
 			}
 		}
 	}
