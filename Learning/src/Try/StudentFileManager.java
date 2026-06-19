@@ -157,7 +157,7 @@ public class StudentFileManager {
 				}
 				break;
 			case 8:
-				System.out.println("System closing....");
+				System.out.println("System closing...");
 				break;
 			default :
 				System.out.println("Wrong option");
