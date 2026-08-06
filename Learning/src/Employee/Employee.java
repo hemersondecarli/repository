@@ -18,13 +18,13 @@ public class Employee{
     private String name;
     private String department;
 
-    public class Employee(int id, String name, String department){
+    public Employee(int id, String name, String department){
         this.id = id;
         this.name = name;
         this.department = department;
     }
 
-    public showInfo(){
+    public void showInfo(){
         System.out.println("ID: "+id+"- Name: "+name + "- Department: "+department);
     }
 
