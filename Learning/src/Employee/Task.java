@@ -7,7 +7,7 @@ public class Task {
 	private String priority;
 	private Status status;
 	
-	private enum Status {
+	public enum Status {
 		TODO,
 		IN_PROGRESS,
 		COMPLETED

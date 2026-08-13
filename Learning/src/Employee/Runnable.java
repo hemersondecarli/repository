@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import Employee.Task.Status;
+
 public class Runnable {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		Random rand = new Random();
 
 		ArrayList<Employee> employees = new ArrayList<>();
 		ArrayList<Task> tasks = new ArrayList<>();
@@ -41,14 +42,51 @@ public class Runnable {
 				System.out.println("Enter your department: ");
 				String department = scanner.nextLine();
 				id++;
-				boolean flagOn = false;
 
 				Employee employee = new Employee(id, name, department);
 				employees.add(employee);
 
 				break;
 			case 2:
+				System.out.println("Enter title");
+				String title = scanner.nextLine();
+				System.out.println("Task description");
+				String taskDesc = scanner.nextLine();
+				System.out.println("Assigned employee? ");
+				String assignedEmployee = scanner.nextLine();
+				System.out.println("Priority");
+				String priority = scanner.nextLine();
+				System.out.println("""
+						Choose status:
+						1. TODO
+						2. IN_PROGRESS
+						3. COMPLETED
+						""");
+				int statusChoice = scanner.nextInt();
+				scanner.nextLine();
+				
+				Status status = null;
+				
+				
+				switch (statusChoice) {
+				
+				case 1:
+					status = Status.TODO;
+					break;
+				case 2:
+					status = Status.IN_PROGRESS;
+					break;
+				case 3:
+					status = Status.COMPLETED;
+					break;
+					default:
+						status = Status.TODO;
+				}
 
+				Task task = new Task (title, taskDesc, assignedEmployee, priority, status);
+				
+				tasks.add(task);
+				
 				break;
 			case 3:
 				for (Employee emp : employees) {
